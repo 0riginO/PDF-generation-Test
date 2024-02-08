@@ -1,0 +1,32 @@
+{
+  "companyLogo": "",
+  "companyName": "The Boring Company",
+  "companyAddress": "The Boring Address 123",
+  "employeeName": "John Titor",
+  "payPeriod": "16 Jan 2024 to 31 Jan 2024",
+  "payDay": "5 Feb 2024",
+  "taxID": "000-000-000-000",
+  "earnings": [
+    {
+      "rowTitle": "Basic Pay",
+      "value": "40,000.00",
+      "rate": "1000.00",
+      "hour": "40.00"
+    },
+    {
+      "rowTitle": "Holiday Pay",
+      "value": "9600.00",
+      "rate": "1200.00",
+      "hour": "8.00"
+    }
+  ],
+  "totalEarnings": "49600.00",
+  "deductions": [
+    { "rowTitle": "PHIC Contributions", "value": "350.00" },
+    { "rowTitle": "Pag-ibig Contributions", "value": "200.00" },
+    { "rowTitle": "Late & Absences", "value": "0.00" },
+    { "rowTitle": "SSS Contributions", "value": "0.00" },
+    { "rowTitle": "Company Deductions", "value": "0.00" }
+  ],
+  "totalDeductions": "550.00"
+}
