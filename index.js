@@ -5,7 +5,9 @@ const hbs = require("handlebars");
 const moment = require("moment");
 const path = require("path");
 
-fs.mkdirSync("./payslips");
+if (!fs.existsSync("./payslips")) {
+  fs.mkdirSync("./payslips");
+}
 
 const compile = async function (templateName, data) {
   const filePath = path.join(process.cwd(), "templates", `${templateName}.hbs`);
