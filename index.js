@@ -14,6 +14,9 @@ if (!fs.existsSync("./temp")) {
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+console.log("Checking ENV...");
+console.log(process.env.SMTP_PASS, process.env.PORT);
+
 app.use(cors());
 app.use(express.json());
 app.use(send);

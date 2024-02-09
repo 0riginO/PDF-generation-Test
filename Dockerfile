@@ -5,5 +5,4 @@ WORKDIR /app
 RUN apk add chromium
 RUN npm install
 ENV SMTP_PASS="hepn pevr pgif bgeh"
-EXPOSE 3000
 CMD [ "npm", "run", "prod" ]
