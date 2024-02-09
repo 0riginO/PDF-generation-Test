@@ -24,7 +24,10 @@ const generatePDF = async function (data) {
       const mem = process.memoryUsage();
       console.log(`Before Generation: ${mem.rss / (1024 * 1024)} MB`);
       for (i; i < data.length; i++) {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+          executablePath: "/usr/bin/chromium-browser",
+          args: ["--no-sandbox"],
+        });
         console.time("pdf");
         const page = await browser.newPage();
 
