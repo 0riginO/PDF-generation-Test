@@ -14,77 +14,47 @@
       </h5>
     </div>
     <h2 class="text-center font-semibold text-2xl my-10">Payslip</h2>
-
     <div class="flex justify-between">
       <div>
-        <h5 class="font-semibold">Employee Name:</h5>
-        <p>{{employeeName}}</p>
+        <h5 class="font-semibold">{{"Employee ID"}}</h5>
+        <p>{{"First Name"}} {{"Middle Name"}} {{"Last Name"}}</p>
       </div>
       <div>
-        <h5><span class="font-semibold">Pay Period:</span> {{payPeriod}}</h5>
-        <h5><span class="font-semibold">Pay Day:</span> {{payDay}}</h5>
-      </div>
-      <div>
-        <h5><span class="font-semibold">Tax ID:</span> {{taxID}}</h5>
+        <h5><span class="font-semibold">Pay Period:</span> {{dateFrom}} to {{dateTo}}</h5>
+        <h5><span class="font-semibold">Pay Day:</span> {{datePayment}}</h5>
       </div>
     </div>
     <hr class="mt-2.5" />
-    <table class="w-full mb-5">
-      <thead>
-        <tr class="text-left border-b-2 border-black">
-          <th class="p-2">Earnings</th>
-          <th class="p-2">Rate</th>
-          <th class="p-2">Hour</th>
-          <th class="p-2"></th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each earnings as |earning|}}
-          <tr class="text-left border-t-2">
-            <th class="p-2 font-light">{{earning.rowTitle}}</th>
-            <th class="p-2 font-light">{{earning.rate}}</th>
-            <th class="p-2 font-light">{{earning.hour}}</th>
-            <th class="p-2 text-right font-light">{{earning.value}}</th>
+
+    {{!-- PAY ITEMS START --}}
+    {{#each payItems as |category|}}
+      <table class="w-full mb-5">
+        <thead>
+          <tr class="text-left border-b-2 border-black">
+            <th class="p-2">{{@key}}</th>
+            <th class="p-2"></th>
           </tr>
+        </thead>
+        {{#each category as |payitem|}}
+          <tbody>
+            <tr class="text-left border-t-2">
+              <th class="p-2 font-light">{{@key}}</th>
+              <th class="p-2 text-right font-light">{{payitem}}</th>
+            </tr>
         {{/each}}
+            <tr class="text-left border-t-2 border-black">
+              <th class="p-2">Total {{@key}}</th>
+              <th class="p-2"></th>
+              <th class="p-2"></th>
+              <th class="p-2 text-right">{{concat "Total " @key}}</th>
+            </tr>
+          </tbody>
+      </table>
+    {{/each}}
+    
 
-        <tr class="text-left border-t-2 border-black">
-          <th class="p-2">Total Earnings</th>
-          <th class="p-2"></th>
-          <th class="p-2"></th>
-          <th class="p-2 text-right">{{totalEarnings}}</th>
-        </tr>
-      </tbody>
-    </table>
+    {{!-- PAY ITEMS END --}}
 
-    <table class="w-full mb-5">
-      <thead>
-        <tr class="text-left border-b-2 border-black">
-          <th class="p-2">Deductions</th>
-          <th class="p-2"></th>
-          <th class="p-2"></th>
-          <th class="p-2"></th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each deductions as |deduction|}}
-          <tr class="text-left border-t-2">
-            <th class="p-2 font-light">{{deduction.rowTitle}}</th>
-            <th class="p-2 font-light"></th>
-            <th class="p-2 font-light"></th>
-            <th class="p-2 text-right font-light">{{deduction.value}}</th>
-          </tr>
-        {{/each}}
-
-        <tr class="text-left border-t-2 border-black">
-          <th class="p-2">Total Deductions</th>
-          <th class="p-2"></th>
-          <th class="p-2"></th>
-          <th class="p-2 text-right">{{totalDeductions}}</th>
-        </tr>
-      </tbody>
-    </table>
-
-    <p class="text-2xl font-semibold">Take Home Pay: 999999.99</p>
+    <p class="text-2xl font-semibold">Take Home Pay: {{"Net Pay"}}</p>
   </body>
 </html>
