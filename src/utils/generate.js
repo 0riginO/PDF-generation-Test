@@ -15,8 +15,8 @@ hbs.registerHelper("dateFormat", function (value, format) {
   return moment(value).format(format);
 });
 
-hbs.registerHelper('concat', function() {
-  return [...arguments].join('');
+hbs.registerHelper('getTotal', function(totalObj, keyVal) {
+  return totalObj[keyVal];
 });
 
 
@@ -39,6 +39,7 @@ const generatePDF = async function (data) {
         
         // Populate template
         const content = await compile("template", data[i]);
+        console.log(data[i]);
         await page.setContent(content);
         await page.pdf({
           path: `./temp/mypdf${i}.pdf`,
