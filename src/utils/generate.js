@@ -15,9 +15,15 @@ hbs.registerHelper("dateFormat", function (value, format) {
   return moment(value).format(format);
 });
 
+hbs.registerHelper('getTotal', function(totalObj, keyVal) {
+  return totalObj[keyVal];
+});
+
+
 const generatePDF = async function (data) {
   return new Promise(async (resolve, reject) => {
     const logs = [];
+    console.log("Data: ", data);
     try {
       let i = 0;
       console.time("overall");
@@ -30,14 +36,17 @@ const generatePDF = async function (data) {
         });
         console.time("pdf");
         const page = await browser.newPage();
-
+        
+        // Populate template
         const content = await compile("template", data[i]);
+        console.log(data[i]);
         await page.setContent(content);
         await page.pdf({
           path: `./temp/mypdf${i}.pdf`,
           format: "A4",
           printBackground: true,
         });
+
         console.timeEnd("pdf");
         const mem = process.memoryUsage();
         console.log(`Current Mem: ${mem.rss / (1024 * 1024)} MB`);
@@ -45,8 +54,8 @@ const generatePDF = async function (data) {
         const log = {
           filePath: `./temp/mypdf${i}.pdf`,
           fileName: `mypdf${i}.pdf`,
-          recipient: data[i].employeeEmail,
-          fullName: data[i].employeeName,
+          recipient: data[i].Email,
+          fullName: `${data[i]["First Name"]} ${data[i]["Middle Name"]} ${data[i]["Last Name"]}`,
           companyName: data[i].companyName,
         };
 

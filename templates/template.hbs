@@ -2,89 +2,58 @@
   <head>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="mx-5 pt-5">
-    <div class="mx-auto">
-      <img class="w-[60px] h-[60px] mx-auto" src="{{companyLogo}}" alt="" />
-    </div>
+  <body class="p-12">
     <div class="text-center">
-      <h5 class="w-60 mx-auto font-semibold">{{companyName}}
+      <h5 class="w-60 mx-auto font-semibold">{{companyInfo.company_name}}
       </h5>
       <h5 class="w-[250px] mx-auto pt-2.5">
-        {{companyAddress}}
+        {{companyInfo.address}}
       </h5>
     </div>
     <h2 class="text-center font-semibold text-2xl my-10">Payslip</h2>
-
     <div class="flex justify-between">
       <div>
-        <h5 class="font-semibold">Employee Name:</h5>
-        <p>{{employeeName}}</p>
+        <h5 class="font-semibold">{{"Employee ID"}}</h5>
+        <p>{{"First Name"}} {{"Middle Name"}} {{"Last Name"}}</p>
       </div>
       <div>
-        <h5><span class="font-semibold">Pay Period:</span> {{payPeriod}}</h5>
-        <h5><span class="font-semibold">Pay Day:</span> {{payDay}}</h5>
-      </div>
-      <div>
-        <h5><span class="font-semibold">Tax ID:</span> {{taxID}}</h5>
+        <h5><span class="font-semibold">Pay Period:</span> {{dateFormat dateFrom "MMMM DD, YYYY"}} to {{dateFormat dateTo "MMMM DD, YYYY"}}</h5>
+        <h5><span class="font-semibold">Pay Day:</span> {{dateFormat datePayment "MMMM DD, YYYY"}}</h5>
       </div>
     </div>
-    <hr class="mt-2.5" />
-    <table class="w-full mb-5">
-      <thead>
-        <tr class="text-left border-b-2 border-black">
-          <th class="p-2">Earnings</th>
-          <th class="p-2">Rate</th>
-          <th class="p-2">Hour</th>
-          <th class="p-2"></th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each earnings as |earning|}}
-          <tr class="text-left border-t-2">
-            <th class="p-2 font-light">{{earning.rowTitle}}</th>
-            <th class="p-2 font-light">{{earning.rate}}</th>
-            <th class="p-2 font-light">{{earning.hour}}</th>
-            <th class="p-2 text-right font-light">{{earning.value}}</th>
+
+    <hr class="my-10" />
+
+    {{!-- PAY ITEMS START --}}
+    {{#each payItems as |category|}}
+      <table class="w-full mb-5">
+        <thead>
+          <tr class="text-left border-b-2 border-black">
+            <th class="p-2">{{@key}}</th>
+            <th class="p-2"></th>
+            <th class="p-2"></th>
           </tr>
+        </thead>
+        <tbody>
+        {{#each category as |payitem|}}
+            <tr class="text-left border-t-2">
+              <td class="p-2 font-light">{{@key}}</td>
+              <td class="p-2"></td>
+              <td class="p-2 text-right font-light">{{payitem}}</td>
+            </tr>
         {{/each}}
-
-        <tr class="text-left border-t-2 border-black">
-          <th class="p-2">Total Earnings</th>
-          <th class="p-2"></th>
-          <th class="p-2"></th>
-          <th class="p-2 text-right">{{totalEarnings}}</th>
-        </tr>
-      </tbody>
-    </table>
-
-    <table class="w-full mb-5">
-      <thead>
-        <tr class="text-left border-b-2 border-black">
-          <th class="p-2">Deductions</th>
-          <th class="p-2"></th>
-          <th class="p-2"></th>
-          <th class="p-2"></th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each deductions as |deduction|}}
-          <tr class="text-left border-t-2">
-            <th class="p-2 font-light">{{deduction.rowTitle}}</th>
-            <th class="p-2 font-light"></th>
-            <th class="p-2 font-light"></th>
-            <th class="p-2 text-right font-light">{{deduction.value}}</th>
+        </tbody>
+        <tfoot>
+          <tr class="text-left border-t-2 border-black">
+            <td class="p-2">Total {{@key}}:</td>
+            <td class="p-2"></td>
+            <td class="p-2 text-right">{{getTotal ../Totals @key}}</td>
           </tr>
-        {{/each}}
+        </tfoot>
+      </table>
+    {{/each}}
+    {{!-- PAY ITEMS END --}}
 
-        <tr class="text-left border-t-2 border-black">
-          <th class="p-2">Total Deductions</th>
-          <th class="p-2"></th>
-          <th class="p-2"></th>
-          <th class="p-2 text-right">{{totalDeductions}}</th>
-        </tr>
-      </tbody>
-    </table>
-
-    <p class="text-2xl font-semibold">Take Home Pay: 999999.99</p>
+    <p class="text-2xl font-semibold">Take Home Pay: {{"Net Pay"}}</p>
   </body>
 </html>
