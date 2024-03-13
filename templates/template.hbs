@@ -17,15 +17,15 @@
         <p>{{"First Name"}} {{"Middle Name"}} {{"Last Name"}}</p>
       </div>
       <div>
-        <h5><span class="font-semibold">Pay Period:</span> {{dateFormat dateFrom "MMMM DD, YYYY"}} to {{dateFormat dateTo "MMMM DD, YYYY"}}</h5>
-        <h5><span class="font-semibold">Pay Day:</span> {{dateFormat datePayment "MMMM DD, YYYY"}}</h5>
+        <h5><span class="font-semibold">Pay Period:</span> {{dateFormat Dates.From "MMMM DD, YYYY"}} to {{dateFormat Dates.To "MMMM DD, YYYY"}}</h5>
+        <h5><span class="font-semibold">Pay Day:</span> {{dateFormat Dates.Payment "MMMM DD, YYYY"}}</h5>
       </div>
     </div>
 
     <hr class="my-10" />
 
     {{!-- PAY ITEMS START --}}
-    {{#each payItems as |category|}}
+    {{#each [Pay Items] as |category|}}
       <table class="w-full mb-5">
         <thead>
           <tr class="text-left border-b-2 border-black">

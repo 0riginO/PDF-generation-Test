@@ -10,14 +10,14 @@ function sendPdfs(pdfs) {
         port: 465,
         secure: true,
         auth: {
-          user: "adrian@fullsuite.ph",
+          user: "deon@fullsuite.ph",
           pass: process.env.SMTP_PASS,
         },
       });
       pdfs.forEach((pdf, index) => {
         transporter.sendMail(
           {
-            from: "adrian@fullsuite.ph",
+            from: "deon@fullsuite.ph",
             to: pdf.recipient,
             subject: `Payslip for ${pdf.fullName}`,
             text: `${pdf.companyName} payslip - ${index}`,

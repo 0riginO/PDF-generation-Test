@@ -12,7 +12,7 @@ if (!fs.existsSync("./temp")) {
 }
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 console.log("Checking ENV...");
 console.log(process.env.SMTP_PASS, process.env.PORT);
@@ -22,5 +22,5 @@ app.use(express.json());
 app.use(send);
 
 app.listen(PORT, () => {
-  console.log("Server running on PORT 3000");
+  console.log("Server running on PORT: ", process.env.PORT);
 });
