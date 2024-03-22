@@ -4,7 +4,8 @@
   </head>
   <body class="p-12">
     <div class="text-center">
-      <h5 class="w-60 mx-auto font-semibold">{{companyInfo.company_name}}
+      <h5 class="w-60 mx-auto font-semibold">
+        {{companyInfo.company_name}}
       </h5>
       <h5 class="w-[250px] mx-auto pt-2.5">
         {{companyInfo.address}}
@@ -17,8 +18,18 @@
         <p>{{"First Name"}} {{"Middle Name"}} {{"Last Name"}}</p>
       </div>
       <div>
-        <h5><span class="font-semibold">Pay Period:</span> {{dateFormat Dates.From "MMMM DD, YYYY"}} to {{dateFormat Dates.To "MMMM DD, YYYY"}}</h5>
-        <h5><span class="font-semibold">Pay Day:</span> {{dateFormat Dates.Payment "MMMM DD, YYYY"}}</h5>
+        <h5>
+          <span class="font-semibold">
+            Pay Period:
+          </span> 
+          {{dateFormat Dates.From "MMMM DD, YYYY"}} to {{dateFormat Dates.To "MMMM DD, YYYY"}}
+        </h5>
+        <h5>
+          <span class="font-semibold">
+            Pay Day:
+          </span> 
+          {{dateFormat Dates.Payment "MMMM DD, YYYY"}}
+        </h5>
       </div>
     </div>
 
