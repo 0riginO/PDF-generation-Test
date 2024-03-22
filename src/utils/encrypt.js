@@ -14,8 +14,8 @@ const encryptPDF = async (logs) => {
         );
         pdfDoc
           .encrypt({
-            userPassword: "123",
-            ownerPassword: "123",
+            userPassword: log.employeeID,
+            ownerPassword: log.employeeID,
             userProtectionFlag: 4,
           })
           .endPDF();
