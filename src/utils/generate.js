@@ -57,7 +57,7 @@ const generatePDF = async function (data) {
           recipient: data[i].Email,
           fullName: `${data[i]["First Name"]} ${data[i]["Middle Name"]} ${data[i]["Last Name"]}`,
           companyName: data[i].company_name,
-          employeeID: data[i].employeeID
+          employeeID: data[i]["Employee ID"]
         };
 
         logs.push(log);
