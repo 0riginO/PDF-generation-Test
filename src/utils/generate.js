@@ -15,7 +15,7 @@ hbs.registerHelper("dateFormat", function (value, format) {
   return moment(value).format(format);
 });
 
-hbs.registerHelper('getTotal', function(totalObj, keyVal) {
+hbs.registerHelper('getTotal', function (totalObj, keyVal) {
   return totalObj[keyVal];
 });
 
@@ -36,9 +36,9 @@ const generatePDF = async function (data) {
         });
         console.time("pdf");
         const page = await browser.newPage();
-        
+
         // Populate template
-        const content = await compile("template", data[i]);
+        const content = await compile("Template 1", data[i]);
         console.log(data[i]);
         await page.setContent(content);
         await page.pdf({
@@ -56,7 +56,8 @@ const generatePDF = async function (data) {
           fileName: `mypdf${i}.pdf`,
           recipient: data[i].Email,
           fullName: `${data[i]["First Name"]} ${data[i]["Middle Name"]} ${data[i]["Last Name"]}`,
-          companyName: data[i].companyName,
+          companyName: data[i].company_name,
+          employeeID: data[i].employeeID
         };
 
         logs.push(log);

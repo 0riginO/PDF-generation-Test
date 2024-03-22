@@ -1,0 +1,95 @@
+<html lang="en">
+
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="flex flex-col mx-auto p-10 h-[1123px] w-[797px] border">
+    <header class="text-center">
+      <img src={{companyInfo.logo}} alt="Logo" class="mx-auto my-2 h-20 w-20" />
+      <h5 class="w-60 mx-auto font-semibold">
+        {{companyInfo.company_name}}
+      </h5>
+      <h5 class="w-[250px] mx-auto pt-2.5">
+        {{companyInfo.tin}}
+      </h5>
+      <h5 class="w-[350px] mx-auto pt-2.5">
+        {{companyInfo.address}}
+      </h5>
+    </header>
+
+    <h2 class="text-center font-semibold text-4xl my-10">Payslip</h2>
+    <div class="flex justify-between pb-14">
+      <div>
+        <h5 class="font-semibold">{{"Employee ID"}}</h5>
+        <p>{{"First Name"}} {{"Middle Name"}} {{"Last Name"}}</p>
+        <p>{{"Job Title"}}</p>
+      </div>
+      <div>
+        <p>&nbsp;</p>
+        <h5>
+          <span class="font-semibold">
+            Pay Period:
+          </span>
+          {{dateFormat Dates.From "MMMM DD, YYYY"}}
+          to
+          {{dateFormat Dates.To "MMMM DD, YYYY"}}
+        </h5>
+        <h5>
+          <span class="font-semibold">
+            Pay Day:
+          </span>
+          {{dateFormat Dates.Payment "MMMM DD, YYYY"}}
+        </h5>
+      </div>
+    </div>
+
+    {{! PAY ITEMS START }}
+    {{#each [Pay Items] as |category|}}
+      <table class="w-full mb-5">
+        <thead>
+          <tr class="text-left border-b-2 border-black">
+            <th class="p-2">{{@key}}</th>
+            <th class="p-2"></th>
+            <th class="p-2 text-right">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each category as |payitem|}}
+          <tr class="text-left border-t-2">
+            <td class="p-2 font-light">{{@key}}</td>
+            <td class="p-2"></td>
+            <td class="p-2 text-right font-light">{{payitem}}</td>
+          </tr>
+        {{/each}}
+        </tbody>
+        <tfoot>
+          <tr class="text-left border-t-2 border-black">
+            <td class="p-2">Total {{@key}}:</td>
+            <td class="p-2"></td>
+            <td class="p-2 text-right">{{getTotal ../Totals @key}}</td>
+          </tr>
+        </tfoot>
+      </table>
+    {{/each}}
+    {{!-- PAY ITEMS END --}}
+
+    <hr class="my-10" />
+
+    <div class="w-full">
+      <div class="w-3/5 flex float-right">
+        <div class="w-1/2 mr-2">
+          <p class="text-2xl text-right font-semibold"> Take Home Pay: &nbsp</p>
+        </div>
+        <div class="w-1/2">
+          <p class="text-2xl text-right font-semibold"> {{"Net Pay"}}</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-auto mx-auto h-10 w-full text-center">
+      <h1 class="my-auto">This is a system generated payslip.</h1>
+    </footer>
+  </body>
+
+</html>
