@@ -20,7 +20,7 @@ function sendPdfs(pdfs) {
             from: "deon@fullsuite.ph",
             to: pdf.recipient,
             subject: `Payslip for ${pdf.fullName}`,
-            text: `${pdf.companyName} payslip - ${index}`,
+            text: `${pdf.companyName}: Payslip for  ${pdf.datePayout} payout.`,
             attachments: [
               {
                 filename: `payslip.pdf`,
