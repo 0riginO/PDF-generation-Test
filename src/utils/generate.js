@@ -28,14 +28,14 @@ hbs.registerHelper("formatNumber", function (number) {
     return number; // Return as is if not a number
   }
 
-  // Convert number to string and split into parts before and after the decimal point
-  const parts = number.toString().split(".");
+  // Split number into integer and decimal parts
+  const [integerPart, decimalPart] = number.toFixed(2).toString().split(".");
 
   // Add commas to the integer part
-  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   // Join the parts with a period and return
-  return parts.join(".");
+  return formattedInteger + "." + decimalPart;
 });
 
 const generatePDF = async function (data) {

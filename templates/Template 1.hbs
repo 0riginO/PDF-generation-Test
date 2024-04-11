@@ -31,15 +31,15 @@
           <span class="font-semibold">
             Pay Period:
           </span>
-          {{dateFormat Dates.From "MMMM DD, YYYY"}}
+          {{dateFormat Dates.From "MMM DD, YYYY"}}
           to
-          {{dateFormat Dates.To "MMMM DD, YYYY"}}
+          {{dateFormat Dates.To "MMM DD, YYYY"}}
         </h5>
         <h5>
           <span class="font-semibold">
             Pay Day:
           </span>
-          {{dateFormat Dates.Payment "MMMM DD, YYYY"}}
+          {{dateFormat Dates.Payment "MMM DD, YYYY"}}
         </h5>
       </div>
     </div>
@@ -82,7 +82,7 @@
           <p class="text-2xl text-right font-semibold"> Take Home Pay: &nbsp</p>
         </div>
         <div class="w-1/2">
-          <p class="text-2xl text-right font-semibold"> {{"Net Pay"}}</p>
+          <p class="text-2xl text-right font-semibold"> {{formatNumber "Net Pay"}}</p>
         </div>
       </div>
     </div>
