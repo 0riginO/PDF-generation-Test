@@ -15,10 +15,28 @@ hbs.registerHelper("dateFormat", function (value, format) {
   return moment(value).format(format);
 });
 
-hbs.registerHelper('getTotal', function (totalObj, keyVal) {
-  return totalObj[keyVal];
+hbs.registerHelper("getTotal", function (totalObj, keyVal) {
+  const value = totalObj[keyVal];
+  const formattedValue = Handlebars.helpers.formatNumber(value);
+
+  return formattedValue;
 });
 
+// Helper function to format numbers with commas and periods
+Handlebars.registerHelper("formatNumber", function (number) {
+  if (typeof number !== "number") {
+    return number; // Return as is if not a number
+  }
+
+  // Convert number to string and split into parts before and after the decimal point
+  const parts = number.toString().split(".");
+
+  // Add commas to the integer part
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  // Join the parts with a period and return
+  return parts.join(".");
+});
 
 const generatePDF = async function (data) {
   return new Promise(async (resolve, reject) => {
@@ -58,7 +76,7 @@ const generatePDF = async function (data) {
           fullName: `${data[i]["First Name"]} ${data[i]["Middle Name"]} ${data[i]["Last Name"]}`,
           companyName: data[i].companyInfo.company_name,
           employeeID: data[i]["Employee ID"],
-          datePayout: data[i]["Dates"]["Payment"]
+          datePayout: data[i]["Dates"]["Payment"],
         };
 
         logs.push(log);
