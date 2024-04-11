@@ -23,7 +23,7 @@ hbs.registerHelper("getTotal", function (totalObj, keyVal) {
 });
 
 // Helper function to format numbers with commas and periods
-Handlebars.registerHelper("formatNumber", function (number) {
+hbs.registerHelper("formatNumber", function (number) {
   if (typeof number !== "number") {
     return number; // Return as is if not a number
   }
