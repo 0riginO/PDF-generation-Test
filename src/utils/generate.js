@@ -17,7 +17,7 @@ hbs.registerHelper("dateFormat", function (value, format) {
 
 hbs.registerHelper("getTotal", function (totalObj, keyVal) {
   const value = totalObj[keyVal];
-  const formattedValue = Handlebars.helpers.formatNumber(value);
+  const formattedValue = hbs.helpers.formatNumber(value);
 
   return formattedValue;
 });
