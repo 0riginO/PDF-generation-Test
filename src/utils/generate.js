@@ -17,9 +17,8 @@ hbs.registerHelper("dateFormat", function (value, format) {
 
 hbs.registerHelper("getTotal", function (totalObj, keyVal) {
   const value = totalObj[keyVal];
-  const formattedValue = hbs.helpers.formatNumber(value);
 
-  return formattedValue;
+  return value;
 });
 
 // Helper function to format numbers with commas and periods
