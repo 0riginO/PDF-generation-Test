@@ -70,8 +70,8 @@ const generatePDF = async function (data) {
         console.log(`Current Mem: ${mem.rss / (1024 * 1024)} MB`);
         await browser.close();
         const log = {
-          filePath: `./temp/${data[i]["Employee ID"]}.pdf`,
-          fileName: `${data[i]["Employee ID"]}.pdf`,
+          filePath: `./temp/mypdf${i}.pdf`,
+          fileName: `mypdf${i}.pdf`,
           recipient: data[i].Email,
           fullName: `${data[i]["First Name"]} ${data[i]["Middle Name"]} ${data[i]["Last Name"]}`,
           companyName: data[i].companyInfo.company_name,
