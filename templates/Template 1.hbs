@@ -18,8 +18,8 @@
       </h5>
     </header>
 
-    <h2 class="text-center font-semibold text-4xl my-10">Payslip</h2>
-    <div class="flex justify-between pb-8">
+    <h2 class="text-center font-semibold text-4xl my-5">Payslip</h2>
+    <div class="flex justify-between pb-5">
       <div>
         <h5 class="font-semibold">{{"Employee ID"}}</h5>
         <p>{{"First Name"}} {{"Middle Name"}} {{"Last Name"}}</p>
@@ -46,7 +46,7 @@
 
     {{! PAY ITEMS START }}
     {{#each [Pay Items] as |category|}}
-      <table class="w-full mb-5">
+      <table class="w-full mb-2.5">
         <thead>
           <tr class="text-left border-b-2 border-black">
             <th class="p-2">{{@key}}</th>
@@ -74,7 +74,7 @@
     {{/each}}
     {{!-- PAY ITEMS END --}}
 
-    <hr class="my-6" />
+    <hr class="my-4" />
 
     <div class="w-full">
       <div class="w-3/5 flex float-right">
