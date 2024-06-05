@@ -24,7 +24,7 @@ hbs.registerHelper("getTotal", function (totalObj, keyVal) {
 
 // Helper function to format numbers with commas and periods
 hbs.registerHelper("formatNumber", function (number) {
-  if (typeof number !== "number") {
+  if (isFloatOrInt(number) === "notANumber") {
     return number; // Return as is if not a number
   }
 
@@ -37,6 +37,11 @@ hbs.registerHelper("formatNumber", function (number) {
   // Join the parts with a period and return
   return formattedInteger + "." + decimalPart;
 });
+
+const isFloatOrInt = (value) => {
+  const parsedValue = parseFloat(value);
+  return !Number.isNaN(parsedValue) && !Number.isInteger(parsedValue);
+};
 
 const generatePDF = async function (data) {
   return new Promise(async (resolve, reject) => {
