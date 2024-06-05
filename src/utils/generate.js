@@ -24,12 +24,17 @@ hbs.registerHelper("getTotal", function (totalObj, keyVal) {
 
 // Helper function to format numbers with commas and periods
 hbs.registerHelper("formatNumber", function (number) {
-  if (isFloatOrInt(number) === "notANumber") {
+  const parsedNumber = parseFloat(number);
+
+  if (isNaN(parsedNumber)) {
     return number; // Return as is if not a number
   }
 
   // Split number into integer and decimal parts
-  const [integerPart, decimalPart] = number.toFixed(2).toString().split(".");
+  const [integerPart, decimalPart] = parsedNumber
+    .toFixed(2)
+    .toString()
+    .split(".");
 
   // Add commas to the integer part
   const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -37,11 +42,6 @@ hbs.registerHelper("formatNumber", function (number) {
   // Join the parts with a period and return
   return formattedInteger + "." + decimalPart;
 });
-
-const isFloatOrInt = (value) => {
-  const parsedValue = parseFloat(value);
-  return !Number.isNaN(parsedValue) && !Number.isInteger(parsedValue);
-};
 
 const generatePDF = async function (data) {
   return new Promise(async (resolve, reject) => {
