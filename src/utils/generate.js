@@ -81,6 +81,7 @@ const generatePDF = async function (data) {
           fullName: `${data[i]["First Name"]} ${data[i]["Middle Name"]} ${data[i]["Last Name"]}`,
           companyName: data[i].companyInfo.company_name,
           employeeID: data[i]["Employee ID"],
+          hireDate: data[i]["Hire Date"],
           datePayout: data[i]["Dates"]["Payment"],
         };
 
