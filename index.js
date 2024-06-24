@@ -20,6 +20,7 @@ console.log(process.env.SMTP_PASS, process.env.PORT);
 app.use(
   cors({
     origin: "https://www.tseksuite.com",
+    methods: ["POST"],
   })
 );
 
