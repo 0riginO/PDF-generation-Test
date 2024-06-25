@@ -17,16 +17,7 @@ const PORT = process.env.PORT;
 console.log("Checking ENV...");
 console.log(process.env.SMTP_PASS, process.env.PORT);
 
-app.use(
-  cors({
-    origin: [
-      "https://fs-hris-server-side-72b549494429.herokuapp.com/",
-      "https://www.tseksuite.com",
-    ],
-    methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
-  })
-);
-
+app.use(cors("*"));
 app.use(express.json());
 app.use(send);
 
