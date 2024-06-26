@@ -18,14 +18,14 @@ console.log("Checking ENV...");
 console.log(process.env.SMTP_PASS, process.env.PORT);
 
 app.use(
-  cors()
-  //   {
-  //   origin: "*",
-  //   methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
-  //   credentials: true,
-  // }
+  cors({
+    origin: [process.env.ORIGIN_URL],
+    methods: ["POST", "OPTIONS"],
+    credentials: true,
+  })
 );
-// app.options("*", cors());
+
+app.options("*", cors());
 app.use(express.json());
 app.use(send);
 
