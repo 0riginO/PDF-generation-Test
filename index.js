@@ -17,14 +17,7 @@ const PORT = process.env.PORT;
 console.log("Checking ENV...");
 console.log(process.env.SMTP_PASS, process.env.PORT);
 
-app.use(
-  cors({
-    origin: [process.env.ORIGIN_URL],
-    methods: ["POST", "OPTIONS"],
-  })
-);
-
-app.options("*", cors());
+app.use(cors());
 app.use(express.json());
 app.use(send);
 
