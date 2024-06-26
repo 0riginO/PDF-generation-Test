@@ -21,7 +21,6 @@ app.use(
   cors({
     origin: [process.env.ORIGIN_URL],
     methods: ["POST", "OPTIONS"],
-    credentials: true,
   })
 );
 
