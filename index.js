@@ -19,8 +19,8 @@ console.log(process.env.SMTP_PASS, process.env.PORT);
 
 app.use(
   cors({
-    origin: "https://fs-hris-server-side-72b549494429.herokuapp.com",
-    methods: ["POST", "OPTIONS"],
+    origin: "*",
+    methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
