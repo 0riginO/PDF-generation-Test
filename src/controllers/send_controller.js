@@ -12,6 +12,7 @@ const sendAndGeneratePDF = (req, res) => {
       return send(logs);
     })
     .then((isSuccess) => {
+      console.log("Result: ", isSuccess);
       isSuccess ? res.sendStatus(200) : res.sendStatus(500);
     });
 };
