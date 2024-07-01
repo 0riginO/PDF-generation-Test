@@ -11,7 +11,6 @@ const compile = async function (templateName, data) {
 };
 
 hbs.registerHelper("dateFormat", function (value, format) {
-  console.log("formatting", value, format);
   return moment(value).format(format);
 });
 
@@ -73,7 +72,6 @@ const generatePDF = async function (data) {
         console.timeEnd("pdf");
         const mem = process.memoryUsage();
         console.log(`Current Mem: ${mem.rss / (1024 * 1024)} MB`);
-        await browser.close();
         const log = {
           filePath: `./temp/mypdf${i}.pdf`,
           fileName: `mypdf${i}.pdf`,
@@ -86,6 +84,10 @@ const generatePDF = async function (data) {
         };
 
         logs.push(log);
+
+        // Close page and browser
+        await page.close();
+        await browser.close();
       }
       console.timeEnd("overall");
       resolve(logs);
