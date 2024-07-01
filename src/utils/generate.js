@@ -11,7 +11,6 @@ const compile = async function (templateName, data) {
 };
 
 hbs.registerHelper("dateFormat", function (value, format) {
-  console.log("formatting", value, format);
   return moment(value).format(format);
 });
 
