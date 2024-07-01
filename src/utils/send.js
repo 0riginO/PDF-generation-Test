@@ -37,7 +37,7 @@ async function sendPdfs(pdfs) {
                               
           <body bgcolor="#F5F8FA" style="width: 100%; margin: auto 0; padding:0; font-family:Lato, sans-serif; font-size:18px; color:#33475B; word-break:break-word">
                               
-            <div id="email" style="margin: auto;width: 80%;background-color: white;">
+            <div id="email" style="margin: auto;width: 90%;background-color: white;">
               <table role="presentation" border="0" cellpadding="0" cellspacing="10px" style="padding: 30px 30px 30px 60px;">
                 <tr>
                   <td style="vertical-align: top;">
