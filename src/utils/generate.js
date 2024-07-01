@@ -80,10 +80,10 @@ const generatePDF = async function (data) {
           companyName: data[i].companyInfo.company_name,
           employeeID: data[i]["Employee ID"],
           hireDate: data[i]["Hire Date"],
-          dateFrom: moment(data[i]["Dates"]["From"]).format("MMM DD, YYYY"),
-          dateTo: moment(data[i]["Dates"]["To"]).format("MMM DD, YYYY"),
+          dateFrom: moment(data[i]["Dates"]["From"]).format("MMMM DD, YYYY"),
+          dateTo: moment(data[i]["Dates"]["To"]).format("MMMM DD, YYYY"),
           datePayout: moment(data[i]["Dates"]["Payment"]).format(
-            "MMM DD, YYYY"
+            "MMMM DD, YYYY"
           ),
         };
 
