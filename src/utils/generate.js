@@ -80,6 +80,8 @@ const generatePDF = async function (data) {
           companyName: data[i].companyInfo.company_name,
           employeeID: data[i]["Employee ID"],
           hireDate: data[i]["Hire Date"],
+          datePayout: data[i]["Dates"]["From"],
+          datePayout: data[i]["Dates"]["To"],
           datePayout: data[i]["Dates"]["Payment"],
         };
 
