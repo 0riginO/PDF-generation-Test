@@ -10,16 +10,16 @@
       <h5 class="w-60 mx-auto font-semibold">
         {{companyInfo.company_name}}
       </h5>
-      <h5 class="w-[250px] mx-auto pt-2.5">
+      <h5 class="w-[250px] mx-auto pt-2">
         {{companyInfo.tin}}
       </h5>
-      <h5 class="w-[350px] mx-auto pt-2.5">
+      <h5 class="w-[350px] mx-auto pt-2">
         {{companyInfo.company_address}}
       </h5>
     </header>
 
     <h2 class="text-center font-semibold text-4xl my-5">Payslip</h2>
-    <div class="flex justify-between pb-5">
+    <div class="flex justify-between pb-4">
       <div>
         <h5 class="font-semibold">{{"Employee ID"}}</h5>
         <p>{{"First Name"}} {{"Middle Name"}} {{"Last Name"}}</p>
@@ -51,7 +51,7 @@
 
     {{! PAY ITEMS START }}
     {{#each [Pay Items] as |category|}}
-      <table class="w-full mb-2.5">
+      <table class="w-full mb-1">
         <thead>
           <tr class="text-left border-b-2 border-black">
             <th class="p-2">{{@key}}</th>
@@ -70,16 +70,16 @@
         </tbody>
         <tfoot>
           <tr class="text-left border-t-2 border-black">
-            <td class="p-2">Total {{@key}}:</td>
-            <td class="p-2"></td>
-            <td class="p-2 text-right">{{getTotal ../Totals @key}}</td>
+            <th class="p-2">Total {{@key}}:</th>
+            <th class="p-2"></th>
+            <th class="p-2 text-right">{{getTotal ../Totals @key}}</th>
           </tr>
         </tfoot>
       </table>
     {{/each}}
     {{!-- PAY ITEMS END --}}
 
-    <hr class="my-4" />
+    <hr class="my-2" />
 
     <div class="w-full">
       <div class="w-3/5 flex float-right">
