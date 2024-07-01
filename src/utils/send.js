@@ -1,47 +1,46 @@
 import nodemailer from "nodemailer";
 import fs from "fs";
 
-function sendPdfs(pdfs) {
-  return new Promise((resolve, reject) => {
-    try {
-      const transporter = nodemailer.createTransport({
-        service: "Gmail",
-        host: "smtp.gmail.com",
-        port: 465,
-        secure: true,
-        auth: {
-          user: "deon@fullsuite.ph",
-          pass: process.env.SMTP_PASS,
-        },
-      });
-      pdfs.forEach((pdf, index) => {
-        transporter.sendMail(
+const transporter = nodemailer.createTransport({
+  service: "Gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "deon@fullsuite.ph",
+    pass: process.env.SMTP_PASS,
+  },
+});
+
+async function sendPdfs(pdfs) {
+  try {
+    for (const pdf of pdfs) {
+      const { recipient, fullName, companyName, datePayout, filePath } = pdf;
+      const info = await transporter.sendMail({
+        from: "deon@fullsuite.ph",
+        to: recipient,
+        subject: `Payslip for ${fullName}`,
+        text: `${companyName}: Payslip for ${datePayout} payout. The Password is your Employee ID and Hire Date in YYYY-MM-DD format.`,
+        attachments: [
           {
-            from: "deon@fullsuite.ph",
-            to: pdf.recipient,
-            subject: `Payslip for ${pdf.fullName}`,
-            text: `${pdf.companyName}: Payslip for  ${pdf.datePayout} payout. The Password is your Employee ID and Hire Date in YYYY-MM-DD format.`,
-            attachments: [
-              {
-                filename: `Payslip - ${pdf.fullName}.pdf`,
-                path: pdf.filePath,
-                contentType: "application/pdf",
-              },
-            ],
+            filename: `Payslip - ${fullName}.pdf`,
+            path: filePath,
+            contentType: "application/pdf",
           },
-          (err, res) => {
-            if (err) throw new Error("Something went wrong - " + err);
-            res.messageId
-              ? fs.rmSync(pdf.filePath)
-              : console.log("Semething went wrong");
-          }
-        );
+        ],
       });
-      resolve(true);
-    } catch (e) {
-      reject(e);
+
+      if (info.messageId) {
+        console.log("Email has been sent.");
+        fs.rmSync(filePath); // Delete PDF file after sending
+      } else {
+        console.log("Something went wrong sending email.");
+      }
     }
-  });
+    return true;
+  } catch (error) {
+    throw new Error("Error sending emails - " + error.message);
+  }
 }
 
 export default sendPdfs;
