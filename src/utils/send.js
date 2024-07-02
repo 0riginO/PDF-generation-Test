@@ -51,6 +51,10 @@ async function sendPdfs(pdfs) {
                       Example:
                       <br /><br />
                       If your hire date is January 15, 2020 (2020-01-15) and your employee number is 12345, your password will be 123452020-01-15.
+                      <br /><br />
+                      If you have any questions or issues regarding your payroll or payslip, please get in touch with the payroll accountant. 
+                      <br />
+                      (Please do not reply to this email.)
                     </p>
                   </td> 
                 </tr>
