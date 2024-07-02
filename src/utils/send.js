@@ -35,9 +35,9 @@ async function sendPdfs(pdfs) {
 
           <head></head>
                               
-          <body bgcolor="#F5F8FA" style="width: 100%; margin: auto 0; padding:0; font-family:Lato, sans-serif; font-size:18px; color:#33475B; word-break:break-word">
+          <body bgcolor="#F5F8FA" style="width: 100%; margin: auto 0; padding:0; font-family:Lato, sans-serif; font-size:12px; color:#33475B; word-break:break-word">
                               
-            <div id="email" style="margin: auto;width: 90%;background-color: white;">
+            <div id="email" style="margin: auto;width: 100%;background-color: white;">
               <table role="presentation" border="0" cellpadding="0" cellspacing="10px" style="padding: 30px 30px 30px 60px;">
                 <tr>
                   <td style="vertical-align: top;">
@@ -49,7 +49,7 @@ async function sendPdfs(pdfs) {
                       To open the attachment, please use a password consisting of your employee number and your hire date in the format YYYY-MM-DD.
                       <br /><br />
                       Example:
-                      <br /><br />
+                      <br />
                       If your hire date is January 15, 2020 (2020-01-15) and your employee number is 12345, your password will be 123452020-01-15.
                       <br /><br />
                       If you have any questions or issues regarding your payroll or payslip, please get in touch with the payroll accountant. 
