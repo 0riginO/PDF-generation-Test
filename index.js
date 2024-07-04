@@ -21,8 +21,8 @@ app.use(
   cors({
     origin: [
       process.env.ORIGIN_URL,
+      process.env.ORIGIN_URL2,
       "http://localhost:3000",
-      "https://www.tseksuite.com/",
     ],
     methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
     credentials: true,
