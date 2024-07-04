@@ -67,12 +67,6 @@ const generatePDF = async function (data) {
           path: `./temp/mypdf${i}.pdf`,
           format: "A4",
           printBackground: true,
-          margin: {
-            top: "12.7mm",
-            right: "12.7mm",
-            bottom: "12.7mm",
-            left: "12.7mm",
-          },
         });
 
         console.timeEnd("pdf");
