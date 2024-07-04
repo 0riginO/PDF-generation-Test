@@ -10,7 +10,7 @@
         }
     </style>
 </head>
-<body class="flex flex-col mx-auto">
+<body class="flex flex-col mx-auto h-[1123px] w-[797px]">
     <header class="text-center">
         <img src={{companyInfo.company_logo}} alt="Logo" class="mx-auto my-2 h-20" />
         <h5 class="w-60 mx-auto font-semibold">{{companyInfo.company_name}}</h5>
@@ -44,7 +44,7 @@
 
         {{!-- PAY ITEMS START --}}
         {{#each [Pay Items] as |category|}}
-            <table class="w-full mb-1">
+            <table class="w-full mb-1 text-sm">
                 <thead>
                     <tr class="text-left border-b-2 border-black">
                         <th class="p-2">{{@key}}</th>
