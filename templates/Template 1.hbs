@@ -5,7 +5,6 @@
         @media print {
             @page {
                 size: A4;
-                margin: 20mm;
             }
             header, footer {
                 position: fixed;
@@ -15,34 +14,13 @@
             }
             header {
                 top: 0;
-                padding-top: 10mm;
             }
             footer {
                 bottom: 0;
-                padding-bottom: 10mm;
             }
             .content {
                 margin-top: 50mm; /* Space for header */
                 margin-bottom: 20mm; /* Space for footer */
-            }
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                page-break-inside: auto;
-            }
-            thead {
-                display: table-header-group;
-            }
-            tbody {
-                display: table-row-group;
-            }
-            tr {
-                page-break-inside: avoid;
-                page-break-after: auto;
-            }
-            td, th {
-                padding: 8px;
-                border: 1px solid #ddd;
             }
         }
     </style>
