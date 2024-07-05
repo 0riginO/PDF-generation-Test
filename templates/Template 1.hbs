@@ -44,7 +44,7 @@
 
         {{!-- PAY ITEMS START --}}
         {{#each [Pay Items] as |category|}}
-          <div class="w-full mb-4 text-sm">
+          <div class="w-full mb-4 text-sm font-semibold">
             <!-- Category Header -->
             <div class="flex justify-between items-center border-b-2 border-black p-2">
               <span class="">{{@key}}</span>
@@ -62,7 +62,7 @@
             </div>
 
             <!-- Category Footer -->
-            <div class="flex justify-between items-center border-t-2 border-black p-2">
+            <div class="flex justify-between items-center border-t-2 border-black p-2 font-semibold">
               <span class="">Total {{@key}}:</span>
               <span class="text-right">{{getTotal ../Totals @key}}</span>
             </div>
