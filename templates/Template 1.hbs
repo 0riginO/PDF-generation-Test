@@ -2,10 +2,12 @@
     <head>
         <script src="https://cdn.tailwindcss.com"></script>
         <style>
-            body {
-                padding: 12.7mm 25.4mm 25.4mm 25.4mm;
+            @media print {
+                @page {
+                    size: A4;
+                    margin: 25.4mm;
+                }
             }
-
         </style>
     </head>
     <body class="flex flex-col mx-auto h-[1123px] w-[797px]">
@@ -83,8 +85,9 @@
             </div>
         </div>
 
-        <footer class="fixed bottom-0 w-full text-center mt-5">
+        <footer class="fixed bottom-0 w-full h-10 text-center">
         <h1 class="my-auto">This is a system generated payslip.</h1>
         </footer>
     </body>
+
 </html>
