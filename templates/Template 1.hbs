@@ -52,14 +52,23 @@
             </div>
 
             <!-- Category Items -->
-            <div class="border-t-2">
+            {{!-- <div class="border-t-2">
               {{#each category as |payitem|}}
                 <div class="flex justify-between items-center border-t p-2">
                   <span class="font-light">{{@key}}</span>
                   <span class="text-right font-light">{{formatNumber payitem}}</span>
                 </div>
               {{/each}}
-            </div>
+            </div> --}}
+            <table>
+              {{#each category as |payitem|}}
+                 <tr class="text-left border-t-2">
+                    <td class="p-2 font-light">{{@key}}</td>
+                    <td class="p-2"></td>
+                    <td class="p-2 text-right font-light">{{formatNumber payitem}}</td>
+                </tr>
+              {{/each}}
+            </table>
 
             <!-- Category Footer -->
             <div class="flex justify-between items-center border-t-2 border-black p-2 font-semibold">
