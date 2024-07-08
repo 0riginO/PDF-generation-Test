@@ -5,14 +5,14 @@
         @media print {
             @page {
                 size: A4;
-                margin: 12.7mm;
+                margin: 25.4mm;
             }
         }
     </style>
 </head>
 <body class="flex flex-col mx-auto h-[1123px] w-[797px]">
     <header class="text-center">
-        <img src={{companyInfo.company_logo}} alt="Logo" class="mx-auto my-2 h-20" />
+        <img src={{companyInfo.company_logo}} alt="Logo" class="mx-auto my-b h-20" />
         <h5 class="w-60 mx-auto font-semibold">{{companyInfo.company_name}}</h5>
         <h5 class="w-[250px] mx-auto pt-2">{{companyInfo.tin}}</h5>
         <h5 class="w-[350px] mx-auto pt-2">{{companyInfo.company_address}}</h5>
@@ -52,28 +52,19 @@
             </div>
 
             <!-- Category Items -->
-            {{!-- <div class="border-t-2">
+            <div class="border-t-2">
               {{#each category as |payitem|}}
                 <div class="flex justify-between items-center border-t p-2">
                   <span class="font-light">{{@key}}</span>
                   <span class="text-right font-light">{{formatNumber payitem}}</span>
                 </div>
               {{/each}}
-            </div> --}}
-            <table>
-              {{#each category as |payitem|}}
-                 <tr class="text-left border-t-2">
-                    <td class="p-2 font-light">{{@key}}</td>
-                    <td class="p-2"></td>
-                    <td class="p-2 text-right font-light">{{formatNumber payitem}}</td>
-                </tr>
-              {{/each}}
-            </table>
+            </div>
 
             <!-- Category Footer -->
-            <div class="flex justify-between items-center border-t-2 border-black p-2 font-semibold">
-              <span class="">Total {{@key}}:</span>
-              <span class="text-right">{{getTotal ../Totals @key}}</span>
+            <div class="flex justify-between items-center border-t-2 border-black p-2 font-semibold mt-5">
+                <span>Total {{key}}:</span>
+                <span class="text-right">{{getTotal ../totals key}}</span>
             </div>
           </div>
         {{/each}}
