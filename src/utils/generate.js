@@ -54,7 +54,17 @@ const generatePDF = async function (data) {
       for (i; i < data.length; i++) {
         const browser = await puppeteer.launch({
           executablePath: "/usr/bin/chromium-browser",
-          args: ["--no-sandbox"],
+          args: [
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--disable-dev-shm-usage",
+            "--disable-gpu",
+            "--disable-extensions",
+            "--remote-debugging-port=9222",
+            "--disable-background-timer-throttling",
+            "--disable-backgrounding-occluded-windows",
+            "--disable-renderer-backgrounding",
+          ],
         });
         console.time("pdf");
         const page = await browser.newPage();
