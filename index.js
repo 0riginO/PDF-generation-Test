@@ -19,7 +19,11 @@ console.log(process.env.SMTP_PASS, process.env.PORT);
 
 app.use(
   cors({
-    origin: [process.env.ORIGIN_URL, process.env.ORIGIN_URL2],
+    origin: [
+      process.env.ORIGIN_URL,
+      process.env.ORIGIN_URL2,
+      "http://localhost:3000",
+    ],
     methods: ["GET", "PATCH", "POST", "DELETE", "OPTIONS"],
     credentials: true,
   })
