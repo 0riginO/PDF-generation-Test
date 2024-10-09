@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --lite-mode --env-file .env index.js",
-    "prod": "npx puppeteer browsers install chrome && node --lite-mode index.js",
+    "prod": "npx puppeteer browsers install chrome && node index.js",
     "limit": "node index.js --max-heap-size=512"
   },
   "author": "",
