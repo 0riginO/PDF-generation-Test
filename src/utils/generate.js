@@ -21,6 +21,10 @@ hbs.registerHelper("getTotal", function (totalObj, keyVal) {
   return formattedValue;
 });
 
+hbs.registerHelper("gt", function (a, b) {
+  return a > b;
+});
+
 // Helper function to format numbers with commas and periods
 hbs.registerHelper("formatNumber", function (number) {
   const parsedNumber = parseFloat(number);

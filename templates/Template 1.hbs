@@ -44,31 +44,35 @@
 
             {{!-- PAY ITEMS START --}}
             {{#each [Pay Items] as |category|}}
-            <div class="w-full mb-4 text-sm font-semibold">
-                <!-- Category Header -->
-                <div class="flex justify-between items-center border-b-2 border-black p-2">
-                <span class="">{{@key}}</span>
-                <span class="text-right">Amount</span>
-                </div>
-
-                <!-- Category Items -->
-                <div class="border-t-2">
-                {{#each category as |payitem|}}
-                    <div class="flex justify-between items-center border-t p-2">
-                    <span class="font-light">{{@key}}</span>
-                    <span class="text-right font-light">{{formatNumber payitem}}</span>
+                {{!-- Check if total is not 0 --}}
+                {{#if (gt (getTotal ../Totals @key) 0)}}
+                <div class="w-full mb-4 text-sm font-semibold">
+                    <!-- Category Header -->
+                    <div class="flex justify-between items-center border-b-2 border-black p-2">
+                        <span>{{@key}}</span>
+                        <span class="text-right">Amount</span>
                     </div>
-                {{/each}}
-                </div>
 
-                <!-- Category Footer -->
-                <div class="flex justify-between items-center border-t-2 border-black p-2 font-semibold">
-                    <span>Total {{key}}:</span>
-                    <span class="text-right">{{getTotal ../Totals @key}}</span>
+                    <!-- Category Items -->
+                    <div class="border-t-2">
+                        {{#each category as |payitem|}}
+                        <div class="flex justify-between items-center border-t p-2">
+                            <span class="font-light">{{@key}}</span>
+                            <span class="text-right font-light">{{formatNumber payitem}}</span>
+                        </div>
+                        {{/each}}
+                    </div>
+
+                    <!-- Category Footer -->
+                    <div class="flex justify-between items-center border-t-2 border-black p-2 font-semibold">
+                        <span>Total {{@key}}:</span>
+                        <span class="text-right">{{getTotal ../Totals @key}}</span>
+                    </div>
                 </div>
-            </div>
+                {{/if}}
             {{/each}}
             {{!-- PAY ITEMS END --}}
+
 
         </div>
 
