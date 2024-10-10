@@ -45,7 +45,7 @@
             {{!-- PAY ITEMS START --}}
             {{#each [Pay Items] as |category|}}
                 {{!-- Check if total is not 0 --}}
-                {{#if (gt (getTotal ../Totals @key) 0)}}
+                {{#if (gt (getTotal ../Totals @key))}}
                 <div class="w-full mb-4 text-sm font-semibold">
                     <!-- Category Header -->
                     <div class="flex justify-between items-center border-b-2 border-black p-2">
@@ -66,7 +66,7 @@
                     <!-- Category Footer -->
                     <div class="flex justify-between items-center border-t-2 border-black p-2 font-semibold">
                         <span>Total {{@key}}:</span>
-                        <span class="text-right">{{getTotal ../Totals @key}}</span>
+                        <span class="text-right">{{formatNumber (getTotal ../Totals @key)}}</span>
                     </div>
                 </div>
                 {{/if}}

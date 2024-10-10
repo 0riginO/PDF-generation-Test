@@ -16,13 +16,15 @@ hbs.registerHelper("dateFormat", function (value, format) {
 
 hbs.registerHelper("getTotal", function (totalObj, keyVal) {
   const value = totalObj[keyVal];
-  const formattedValue = hbs.helpers.formatNumber(value);
 
-  return formattedValue;
+  if (totalObj && keyVal) {
+    return Number(totalObj[keyVal]) || 0;
+  }
+  return 0;
 });
 
-hbs.registerHelper("gt", function (a, b) {
-  return Number(a) > Number(b);
+hbs.registerHelper("gt", function (a) {
+  return Number(a) > 0;
 });
 
 // Helper function to format numbers with commas and periods
