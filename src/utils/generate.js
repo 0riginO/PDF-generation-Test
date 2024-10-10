@@ -22,7 +22,7 @@ hbs.registerHelper("getTotal", function (totalObj, keyVal) {
 });
 
 hbs.registerHelper("gt", function (a, b) {
-  return a > b;
+  return Number(a) > Number(b);
 });
 
 // Helper function to format numbers with commas and periods
