@@ -48,6 +48,12 @@ hbs.registerHelper("formatNumber", function (number) {
   return formattedInteger + "." + decimalPart;
 });
 
+// Register a helper to replace newlines with <br>
+hbs.registerHelper("newlineToBr", function (text) {
+  const escapedText = hbs.Utils.escapeExpression(text);
+  return new hbs.SafeString(escapedText.replace(/\n/g, "<br>"));
+});
+
 const generatePDF = async function (data) {
   return new Promise(async (resolve, reject) => {
     const logs = [];
