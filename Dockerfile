@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:18-alpine
 
 WORKDIR /app
 RUN apk add --no-cache chromium python3 make g++
