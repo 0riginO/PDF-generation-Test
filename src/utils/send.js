@@ -46,11 +46,11 @@ async function sendPdfs(pdfs) {
                       <br /><br />
                       Attached is your payslip for the period covering from ${dateFrom}, to ${dateTo}. This has been approved for credit to your respective account on ${datePayout}.
                       <br /><br />
-                      To open the attachment, please use a password consisting of your employee number and your hire date in the format YYYY-MM-DD.
+                      To open the attachment, please use a password consisting of your Employee ID and your Hire Date in the format YYYY-MM-DD.
                       <br /><br />
                       Example:
                       <br />
-                      If your hire date is January 15, 2020 (2020-01-15) and your employee number is 12345, your password will be 123452020-01-15.
+                      If your hire date is January 15, 2020 (2020-01-15) and your Employee ID is ABCD-1234, your password will be ABCD-12342020-01-15.
                       <br /><br />
                       If you have any questions or issues regarding your payroll or payslip, please get in touch with the payroll accountant. 
                       <br />
